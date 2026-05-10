@@ -1,4 +1,4 @@
 <Solution>
   <Project Path="GetTripSystem/GetTripSystem.csproj" />
-  <Project Path="Tests/Tests.csproj" Id="f42e06bf-6e75-4fb3-9a01-9282e2856426" />
+  <Project Path="Tests/GetTripSystem.Tests.csproj" Id="f42e06bf-6e75-4fb3-9a01-9282e2856426" />
 </Solution>

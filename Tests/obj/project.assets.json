@@ -3415,9 +3415,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\Tests\\Tests.csproj",
-      "projectName": "Tests",
-      "projectPath": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\Tests\\GetTripSystem.Tests.csproj",
+      "projectName": "GetTripSystem.Tests",
+      "projectPath": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\Tests\\GetTripSystem.Tests.csproj",
       "packagesPath": "C:\\Users\\Даша\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\Tests\\obj\\",
       "projectStyle": "PackageReference",

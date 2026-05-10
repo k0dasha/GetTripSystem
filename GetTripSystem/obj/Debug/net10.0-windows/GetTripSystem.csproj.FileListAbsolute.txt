@@ -41,3 +41,4 @@ C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-win
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.pdb
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.genruntimeconfig.cache
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\ref\GetTripSystem.dll
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.sourcelink.json
