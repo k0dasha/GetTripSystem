@@ -1,0 +1,31 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Npgsql;
+using System.Configuration;
+using System.Data;
+using System.Windows;
+using static GetTripSystem.DAL;
+
+namespace GetTripSystem
+{
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
+    {
+        public static IServiceProvider ServiceProvider { get; private set; }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            var services = new ServiceCollection();
+
+            services.AddDbContext<Context>(options =>
+                options.UseNpgsql("Host=localhost;Database=trip_database;Username=dasha;Password=1234"));
+
+            ServiceProvider = services.BuildServiceProvider();
+        }
+    }
+}

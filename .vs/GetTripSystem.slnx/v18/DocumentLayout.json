@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\Tests.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\tests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\Tests.csproj|solutionrelative:tests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TripRepository.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\TripRepository.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
+              "RelativeToolTip": "GetTripSystem\\Repositories\\TripRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T17:19:51.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "GetTripSystem\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T17:15:02.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Test1.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\Test1.cs",
+              "RelativeDocumentMoniker": "Tests\\Test1.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\Test1.cs",
+              "RelativeToolTip": "Tests\\Test1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T20:28:35.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DAL.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\DAL.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\DAL.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\DAL.cs",
+              "RelativeToolTip": "GetTripSystem\\DAL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T15:04:26.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
