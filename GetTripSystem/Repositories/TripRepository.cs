@@ -12,13 +12,14 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public TripRepository()
-        {
-        }
 
         public async Task<List<Trip>> ReadAll()
         {
             return await _context.Trips.ToListAsync();
+        }
+        public async Task<Trip?> ReadByID(int tripId)
+        {
+            return await _context.Trips.FindAsync(tripId);
         }
         public async Task<List<Trip>> SortByDate()
         {
@@ -61,12 +62,37 @@ namespace GetTripSystem.Repositories
                 .SetProperty(x => x.Description, desc)
                 .SetProperty(x => x.Date, date)
                 .SetProperty(x => x.CreatorContact, creatorContact));
+        }
+        public async Task UpdateMembsCount(int id, int incrementBy = 1) //????????????????????????????
+        {
+            var trip = await _context.Trips.FindAsync(id);
 
+            trip.CurMembs_amount += incrementBy;
             await _context.SaveChangesAsync();
+        }
+        public async Task IncreaseMembersCount(int id)
+        {
+            await _context.Trips
+                .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
+                .ExecuteUpdateAsync(s => s
+                    .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount + 1));
+        }
+        public async Task DecreaseMembersCount(int id)
+        {
+            await _context.Trips
+                .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
+                .ExecuteUpdateAsync(s => s
+                    .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
+        }
+        public async Task<int> CheckRegAvaibility (int curMembs, int maxMembs)
+        {
+            int result = maxMembs - curMembs;
+            if (result > 0) { return result; }
+            else { return 0; }
         }
         public async Task<List<Trip>> GetCreatorsTrips(int id)
         {
-            return await _context.Trips.Where(c => c.Id == id).ToListAsync();
+            return await _context.Trips.Where(c => c.CreatorID == id).ToListAsync();
         }
     }
 }

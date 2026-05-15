@@ -31,5 +31,12 @@ namespace GetTripSystem.Repositories
             user.Banned = true;
             await _context.SaveChangesAsync();
         }
+        public async Task<List<string>> GetUsersNamesByIDs(List<int> userIDs)
+        {
+            return await _context.Users
+                .Where(u => userIDs.Contains(u.Id))
+                .Select(u => u.Name)
+                .ToListAsync();
+        }
     }
 }
