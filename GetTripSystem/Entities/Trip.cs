@@ -15,9 +15,6 @@ namespace GetTripSystem
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public string CreatorContact { get; set; }
-
-        //public List<User> Members { get; set; } = [];
-        
-      
+       
     }
 }

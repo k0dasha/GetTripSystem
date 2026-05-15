@@ -1,0 +1,37 @@
+﻿using GetTripSystem.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Text;
+using static GetTripSystem.DAL;
+
+namespace GetTripSystem.Repositories
+{
+    public class PictureRepository
+    {
+        private readonly Context _context;
+        public PictureRepository(Context context)
+        {
+            _context = context;
+        }
+        public async Task Add(int id, int tripId, string filePath)
+        {
+            var pic = new Picture
+            {
+                Id = id,
+                TripID = tripId,
+                FilePath = filePath
+            };
+            await _context.AddAsync(pic);
+            await _context.SaveChangesAsync();
+        }
+        public async void Delete(int id)
+        {
+            await _context.Pictures
+                .Where(x => x.Id == id)
+                .ExecuteDeleteAsync();
+        }
+
+    }
+}

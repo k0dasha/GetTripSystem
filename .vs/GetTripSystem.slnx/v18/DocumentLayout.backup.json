@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\GetTripSystem.Tests.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\tests\\triptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\GetTripSystem.Tests.csproj|solutionrelative:tests\\triptests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\GetTripSystem.Tests.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\tests\\usertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\GetTripSystem.Tests.csproj|solutionrelative:tests\\usertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,19 +18,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserTests.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\UserTests.cs",
-              "RelativeDocumentMoniker": "Tests\\UserTests.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\UserTests.cs*",
-              "RelativeToolTip": "Tests\\UserTests.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "GetTripSystem\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T17:50:52.202Z",
+              "WhenOpened": "2026-05-03T17:15:02.469Z",
               "EditorCaption": ""
             },
             {
@@ -55,43 +47,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TripTests.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\TripTests.cs",
-              "RelativeDocumentMoniker": "Tests\\TripTests.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\TripTests.cs",
-              "RelativeToolTip": "Tests\\TripTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T20:28:35.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "GetTripSystem\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAoAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-03T17:15:02.469Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "TripRepository.cs",
               "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
               "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\TripRepository.cs",
               "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
               "RelativeToolTip": "GetTripSystem\\Repositories\\TripRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-03T17:19:51.537Z",
               "EditorCaption": ""

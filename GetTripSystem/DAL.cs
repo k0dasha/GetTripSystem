@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using static GetTripSystem.DAL;
+using GetTripSystem.Entities;
 
 
 namespace GetTripSystem
@@ -18,6 +19,8 @@ namespace GetTripSystem
             }
             public DbSet<User> Users { get; set; }
             public DbSet<Trip> Trips { get; set; }
+            public DbSet<Registration> Registrations { get; set; }
+            public DbSet<Picture> Pictures { get; set; }
         }
     }
 }

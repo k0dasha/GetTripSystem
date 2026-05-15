@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GetTripSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 using static GetTripSystem.DAL;
 
 namespace GetTripSystem.Repositories
@@ -62,6 +63,10 @@ namespace GetTripSystem.Repositories
                 .SetProperty(x => x.CreatorContact, creatorContact));
 
             await _context.SaveChangesAsync();
+        }
+        public async Task<List<Trip>> GetCreatorsTrips(int id)
+        {
+            return await _context.Trips.Where(c => c.Id == id).ToListAsync();
         }
     }
 }
