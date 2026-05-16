@@ -14,11 +14,10 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task Add(int id, int userID, int tripID, string status)
+        public async Task Add(int userID, int tripID)
         {
             var reg = new Registration
             {
-                Id = id,
                 UserID = userID,
                 TripID = tripID,
                 UserStatus = "active"
@@ -26,7 +25,7 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(reg);
             await _context.SaveChangesAsync();
         }
-        public async Task Update(int id, string status)
+        public async Task UpdateMember(int id, string status)
         {
             await _context.Registrations
                 .Where(x => x.Id == id)
@@ -52,6 +51,9 @@ namespace GetTripSystem.Repositories
                 .Select(r => r.UserStatus)
                 .FirstOrDefaultAsync();
         }
-
+        public async Task<int> GetCurrentMembersCount(int tripID)
+        {
+            return await _context.Registrations.CountAsync(u => u.TripID == tripID);
+        }
     }
 }

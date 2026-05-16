@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IqlDgY5Q/xY=",
+  "dgSpecHash": "nEDZuevm1HU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Даша\\source\\repos\\GetTripSystem\\GetTripSystem\\GetTripSystem.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Даша\\.nuget\\packages\\bcrypt.net-next\\4.2.0\\bcrypt.net-next.4.2.0.nupkg.sha512",
     "C:\\Users\\Даша\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.7\\microsoft.entityframeworkcore.10.0.7.nupkg.sha512",
     "C:\\Users\\Даша\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.7\\microsoft.entityframeworkcore.abstractions.10.0.7.nupkg.sha512",
     "C:\\Users\\Даша\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.7\\microsoft.entityframeworkcore.analyzers.10.0.7.nupkg.sha512",

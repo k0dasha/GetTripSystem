@@ -84,15 +84,17 @@ namespace GetTripSystem.Repositories
                 .ExecuteUpdateAsync(s => s
                     .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
         }
-        public async Task<int> CheckRegAvaibility (int curMembs, int maxMembs)
-        {
-            int result = maxMembs - curMembs;
-            if (result > 0) { return result; }
-            else { return 0; }
-        }
+        
         public async Task<List<Trip>> GetCreatorsTrips(int id)
         {
             return await _context.Trips.Where(c => c.CreatorID == id).ToListAsync();
+        }
+        public Task<int> GetMaxMembersCount(int tripID)
+        {
+            return _context.Trips
+                .Where(r => r.Id == tripID)
+                .Select(r => r.MaxMembs_amount)
+                .FirstOrDefaultAsync();
         }
     }
 }

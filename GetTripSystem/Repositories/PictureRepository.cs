@@ -15,11 +15,10 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task Add(int id, int tripId, string filePath)
+        public async Task Add(int tripId, string filePath)
         {
             var pic = new Picture
             {
-                Id = id,
                 TripID = tripId,
                 FilePath = filePath
             };
