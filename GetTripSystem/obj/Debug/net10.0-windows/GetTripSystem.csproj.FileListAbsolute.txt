@@ -25,11 +25,9 @@ C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\bin\Debug\net10.0-win
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\bin\Debug\net10.0-windows\Npgsql.dll
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\bin\Debug\net10.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.csproj.AssemblyReference.cache
-C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem_MarkupCompile.cache
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem_MarkupCompile.lref
-C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\MainWindow.baml
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.g.resources
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.AssemblyInfoInputs.cache
@@ -42,3 +40,7 @@ C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-win
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.genruntimeconfig.cache
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\ref\GetTripSystem.dll
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\GetTripSystem.sourcelink.json
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\bin\Debug\net10.0-windows\BCrypt-Net-Next.dll
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainWindow.g.cs
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainWindow.baml
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\App.baml

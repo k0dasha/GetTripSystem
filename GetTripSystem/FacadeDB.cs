@@ -20,10 +20,10 @@ namespace GetTripSystem
             _picRepository = pictureRepository;
             _regRepository = registrationRepository;
         }
-        public async Task RegisterTrip(int id, string tripName, string location, int curMembs, int maxMembs,
+        public Task RegisterTrip(int id, string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
-            await _tripRepository.Add(id, tripName, location, curMembs, maxMembs,
+            return _tripRepository.Add(id, tripName, location, curMembs, maxMembs,
         creatorID, desc, date, creatorContact);
         }
         public async Task AddPicture(int tripId, string filePath)
@@ -31,14 +31,14 @@ namespace GetTripSystem
             var fileName = Hasher.HashPicture(); //Надо сделать прям путь с помощью имени файла?
             await _picRepository.Add(tripId, fileName);
         }
-        public async Task<List<Trip>> ToSort(int parametr)
+        public Task<List<Trip>> ToSort(int parametr)
         {
             if (parametr == 0)
             {
-                return await _tripRepository.SortByDate();
+                return _tripRepository.SortByDate();
             }
             else
-            { return await _tripRepository.SortByLocation(); }
+            { return _tripRepository.SortByLocation(); }
         }
         public async Task<List<string>> GetMembersOfTrip(int tripId)
         {
@@ -62,10 +62,10 @@ namespace GetTripSystem
             else throw new InvalidOperationException("Trip is full");
         }
         
-        public async Task<List<Trip>> GetAllTrips()
+        public Task<List<Trip>> GetAllTrips()
         {
             //учесть наступление дат созданных походов?
-            return await _tripRepository.ReadAll();
+            return _tripRepository.ReadAll();
         }
         public async Task<Trip?> GetTrip(int userID, int tripID)
         {

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using GetTripSystem.Interfaces;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,29 @@ namespace GetTripSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IRegistration _reg;
+        private readonly IManagement _manage;
+
+        public MainWindow(IRegistration registration, IManagement management)
         {
             InitializeComponent();
+            _reg = registration;
+            _manage = management;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Plan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Manage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GetTripSystem.Interfaces;
+using GetTripSystem.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
@@ -25,7 +27,24 @@ namespace GetTripSystem
             services.AddDbContext<Context>(options =>
                 options.UseNpgsql("Host=localhost;Database=trip_database;Username=dasha;Password=1234"));
 
+            services.AddScoped<UserRepository>();
+            services.AddScoped<TripRepository>();
+            services.AddScoped<RegistrationRepository>();
+            services.AddScoped<PictureRepository>();
+
+            services.AddScoped<FacadeDB>();
+
+            services.AddScoped<ICreateOperation>(sp => sp.GetRequiredService<FacadeDB>());
+            services.AddScoped<IManagement>(sp => sp.GetRequiredService<FacadeDB>());
+            services.AddScoped<IRegistration>(sp => sp.GetRequiredService<FacadeDB>());
+
+            services.AddTransient<MainWindow>();
+
             ServiceProvider = services.BuildServiceProvider();
+
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
         }
+        
     }
 }
