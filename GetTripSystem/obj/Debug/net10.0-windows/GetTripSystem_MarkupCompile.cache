@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\App.xaml
-1-1819699537
+5925841117
 
-1841504533
+22-1285746828
 2271133318720
-Windows\MainWindow.xaml;
+Windows\CreateTripWindow.xaml;Windows\MainMenuPage.xaml;Windows\MainWindow.xaml;Windows\ManageTripsPage.xaml;Windows\PlannedTripsPage.xaml;
 
 False
 

@@ -44,3 +44,11 @@ C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\bin\Debug\net10.0-win
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainWindow.g.cs
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainWindow.baml
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\App.baml
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\CreateTripWindow.g.cs
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\CreateTripWindow.baml
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainMenuPage.g.cs
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\ManageTripsPage.g.cs
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\PlannedTripsPage.g.cs
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\MainMenuPage.baml
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\ManageTripsPage.baml
+C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\obj\Debug\net10.0-windows\Windows\PlannedTripsPage.baml
