@@ -10,6 +10,6 @@ namespace GetTripSystem.Entities
     {
         public int Id { get; set; }
         public int TripID { get; set; }
-        public string FilePath { get; set; }
+        public string FileName { get; set; }
     }
 }

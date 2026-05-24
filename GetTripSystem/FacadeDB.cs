@@ -1,6 +1,7 @@
 ﻿using GetTripSystem.Interfaces;
 using GetTripSystem.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 using static GetTripSystem.DAL;
 
 namespace GetTripSystem
@@ -20,15 +21,27 @@ namespace GetTripSystem
             _picRepository = pictureRepository;
             _regRepository = registrationRepository;
         }
-        public Task RegisterTrip(int id, string tripName, string location, int curMembs, int maxMembs,
+        public Task RegisterTrip(string tripName, string location, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
-            return _tripRepository.Add(id, tripName, location, curMembs, maxMembs,
+            return _tripRepository.Add(tripName, location, maxMembs,
         creatorID, desc, date, creatorContact);
         }
         public async Task AddPicture(int tripId, string filePath)
         {
-            var fileName = Hasher.HashPicture(); //Надо сделать прям путь с помощью имени файла?
+            var fileName = Hasher.HashPicture(filePath);
+
+            string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GetTripSystem", "Images");
+            Directory.CreateDirectory(folder);
+            string newPath = Path.Combine(folder, fileName);
+            try
+            {
+                File.Copy(filePath, newPath);
+            }
+            catch (IOException ex)
+            {
+                throw new Exception("Ошибка копирования файла", ex);
+            }
             await _picRepository.Add(tripId, fileName);
         }
         public Task<List<Trip>> ToSort(int parametr)
@@ -47,7 +60,7 @@ namespace GetTripSystem
         }
         public async Task KickMember(int id, string status)
         {
-            await _regRepository.UpdateMember(id, status = "kicked");
+            await _regRepository.UpdateMember(id, "kicked");
         }
         public async Task AddMember(int userID, int tripID)
         {
@@ -59,17 +72,15 @@ namespace GetTripSystem
                 await _regRepository.Add(userID, tripID);
                 await _tripRepository.IncreaseMembersCount(tripID);
             }
-            else throw new InvalidOperationException("Trip is full");
+            else throw new InvalidOperationException("Ошибка записи: мест нет");
         }
         
         public Task<List<Trip>> GetAllTrips()
         {
-            //учесть наступление дат созданных походов?
             return _tripRepository.ReadAll();
         }
         public async Task<Trip?> GetTrip(int userID, int tripID)
         {
-            //использовать getUserStatus()
             var userStatus = await _regRepository.GetUserStatus(userID, tripID);
             if (userStatus == "kicked")
             {

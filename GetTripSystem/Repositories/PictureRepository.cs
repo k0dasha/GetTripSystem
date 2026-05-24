@@ -15,17 +15,17 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task Add(int tripId, string filePath)
+        public async Task Add(int tripId, string fileName)
         {
             var pic = new Picture
             {
                 TripID = tripId,
-                FilePath = filePath
+                FileName = fileName
             };
             await _context.AddAsync(pic);
             await _context.SaveChangesAsync();
         }
-        public async void Delete(int id)
+        public async Task Delete(int id)
         {
             await _context.Pictures
                 .Where(x => x.Id == id)

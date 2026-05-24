@@ -7,7 +7,7 @@ namespace GetTripSystem.Interfaces
     public interface ICreateOperation
     {
         Task AddPicture(int tripID, string filePath);
-        Task RegisterTrip(int id, string tripName, string location, int curMembs, int maxMembs,
+        Task RegisterTrip(string tripName, string location, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact);
     }
 }

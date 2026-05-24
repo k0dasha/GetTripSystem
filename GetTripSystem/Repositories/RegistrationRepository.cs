@@ -53,7 +53,7 @@ namespace GetTripSystem.Repositories
         }
         public async Task<int> GetCurrentMembersCount(int tripID)
         {
-            return await _context.Registrations.CountAsync(u => u.TripID == tripID);
+            return await _context.Registrations.CountAsync(u => u.TripID == tripID && u.UserStatus == "active");
         }
     }
 }

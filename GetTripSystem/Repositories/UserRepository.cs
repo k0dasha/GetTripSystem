@@ -13,11 +13,10 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task Add(int id, string name, string passwdHash, bool banned)
+        public async Task Add(string name, string passwdHash, bool banned)
         {
             var user = new User
             {
-                Id = id,
                 Name = name,
                 PasswdHash = passwdHash,
                 Banned = false

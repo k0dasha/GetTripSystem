@@ -10,7 +10,7 @@ namespace GetTripSystem.Tests
 {
 
     [TestClass]
-    public sealed class UserTests
+    public sealed class UserRepositoryTests
     {
 
     }

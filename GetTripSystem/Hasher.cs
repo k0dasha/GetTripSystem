@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace GetTripSystem
 {
@@ -16,9 +17,13 @@ namespace GetTripSystem
         {
             return BCrypt.Net.BCrypt.Verify(password, hash);
         }
-        public static string HashPicture()
+        public static string HashPicture(string originalPath)
         {
-            return null;
+            string extension = Path.GetExtension(originalPath); 
+
+            string fileName = $"{Guid.NewGuid()}{extension}";
+
+            return fileName;
         }
     }
 }

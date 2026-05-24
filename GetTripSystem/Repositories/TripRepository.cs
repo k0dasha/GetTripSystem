@@ -29,12 +29,11 @@ namespace GetTripSystem.Repositories
         {
             return await _context.Trips.OrderBy(c => c.Location).ToListAsync();
         }
-        public async Task Add(int id, string tripName, string location, int curMembs, int maxMembs,
+        public async Task Add(string tripName, string location, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
             var trip = new Trip
             {
-                Id = id,
                 TripName = tripName,
                 Location = location,
                 CurMembs_amount = 0,
@@ -47,7 +46,7 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(trip);
             await _context.SaveChangesAsync();
         }
-        public async void Delete(int id)
+        public async Task Delete(int id)
         {
             await _context.Trips
                 .Where(x => x.Id == id)
