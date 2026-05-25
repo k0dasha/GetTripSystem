@@ -21,13 +21,13 @@ namespace GetTripSystem
             _picRepository = pictureRepository;
             _regRepository = registrationRepository;
         }
-        public Task RegisterTrip(string tripName, string location, int maxMembs,
+        public Task RegisterTrip(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
-            return _tripRepository.Add(tripName, location, maxMembs,
+            return _tripRepository.Add(tripName, location, curMembs, maxMembs,
         creatorID, desc, date, creatorContact);
         }
-        public async Task AddPicture(int tripId, string filePath)
+        public async Task AddPicture(int tripId, string filePath) //_picRepositor
         {
             var fileName = Hasher.HashPicture(filePath);
 
@@ -53,16 +53,17 @@ namespace GetTripSystem
             else
             { return _tripRepository.SortByLocation(); }
         }
-        public async Task<List<string>> GetMembersOfTrip(int tripId)
+        public async Task<List<string>> GetMembersOfTrip(int tripId) //reg user
         {
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
             return await _userRepository.GetUsersNamesByIDs(userIDs);
         }
-        public async Task KickMember(int id, string status)
+        public async Task KickMember(int id, string status) //reg user
         {
             await _regRepository.UpdateMember(id, "kicked");
+            await CheckUserBan(id);
         }
-        public async Task AddMember(int userID, int tripID)
+        public async Task AddMember(int userID, int tripID) //reg trip
         {
             var curMembs = await _regRepository.GetCurrentMembersCount(tripID);
             var maxMembs = await _tripRepository.GetMaxMembersCount(tripID);
@@ -79,7 +80,7 @@ namespace GetTripSystem
         {
             return _tripRepository.ReadAll();
         }
-        public async Task<Trip?> GetTrip(int userID, int tripID)
+        public async Task<Trip?> GetTrip(int userID, int tripID) //reg trip
         {
             var userStatus = await _regRepository.GetUserStatus(userID, tripID);
             if (userStatus == "kicked")
@@ -87,6 +88,19 @@ namespace GetTripSystem
                 return null;
             }
             else { return await _tripRepository.ReadByID(tripID); }
+        }
+        public async Task CheckUserBan(int userId)
+        {
+            int count = await _regRepository.GetCountByUser(userId);
+
+            if (count >= 3)
+            {
+                await _userRepository.UpdateStatus(userId);
+            }
+        }
+        public async Task<List<string>> GetPictures(int tripId)
+        {
+            return await _picRepository.GetAll(tripId);
         }
     }
 }

@@ -55,5 +55,10 @@ namespace GetTripSystem.Repositories
         {
             return await _context.Registrations.CountAsync(u => u.TripID == tripID && u.UserStatus == "active");
         }
+        public async Task<int> GetCountByUser(int userId)
+        {
+            return await _context.Registrations
+                .CountAsync(r => r.UserID == userId && r.UserStatus == "kicked");
+        }
     }
 }

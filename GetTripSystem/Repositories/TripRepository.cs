@@ -29,14 +29,14 @@ namespace GetTripSystem.Repositories
         {
             return await _context.Trips.OrderBy(c => c.Location).ToListAsync();
         }
-        public async Task Add(string tripName, string location, int maxMembs,
+        public async Task Add(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
             var trip = new Trip
             {
                 TripName = tripName,
                 Location = location,
-                CurMembs_amount = 0,
+                CurMembs_amount = curMembs,
                 MaxMembs_amount = maxMembs,
                 CreatorID = creatorID,
                 Description = desc,
@@ -61,13 +61,6 @@ namespace GetTripSystem.Repositories
                 .SetProperty(x => x.Description, desc)
                 .SetProperty(x => x.Date, date)
                 .SetProperty(x => x.CreatorContact, creatorContact));
-        }
-        public async Task UpdateMembsCount(int id, int incrementBy = 1) //????????????????????????????
-        {
-            var trip = await _context.Trips.FindAsync(id);
-
-            trip.CurMembs_amount += incrementBy;
-            await _context.SaveChangesAsync();
         }
         public async Task IncreaseMembersCount(int id)
         {

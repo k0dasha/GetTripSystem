@@ -31,6 +31,12 @@ namespace GetTripSystem.Repositories
                 .Where(x => x.Id == id)
                 .ExecuteDeleteAsync();
         }
-
+        public async Task<List<string>> GetAll(int tripId)
+        {
+            return await _context.Pictures
+                .Where(r => r.TripID == tripId)
+                .Select(r => r.FileName)
+                .ToListAsync();
+        }
     }
 }

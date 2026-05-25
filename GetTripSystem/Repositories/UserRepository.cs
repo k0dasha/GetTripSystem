@@ -13,7 +13,7 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task Add(string name, string passwdHash, bool banned)
+        public async Task Add(string name, string passwdHash)
         {
             var user = new User
             {
@@ -24,7 +24,7 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
         }
-        public async Task Update(int id)
+        public async Task UpdateStatus(int id)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
             user.Banned = true;
