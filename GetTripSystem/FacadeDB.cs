@@ -21,6 +21,11 @@ namespace GetTripSystem
             _picRepository = pictureRepository;
             _regRepository = registrationRepository;
         }
+        public Task AddUser(string name, string password)
+        {
+            var pswdHash = Hasher.HashPassword(password);
+            return _userRepository.Add(name, pswdHash);
+        }
         public Task RegisterTrip(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
         {
@@ -58,7 +63,7 @@ namespace GetTripSystem
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
             return await _userRepository.GetUsersNamesByIDs(userIDs);
         }
-        public async Task KickMember(int id, string status) //reg user
+        public async Task KickMember(int id) //reg user
         {
             await _regRepository.UpdateMember(id, "kicked");
             await CheckUserBan(id);

@@ -64,17 +64,23 @@ namespace GetTripSystem.Repositories
         }
         public async Task IncreaseMembersCount(int id)
         {
-            await _context.Trips
-                .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
-                .ExecuteUpdateAsync(s => s
-                    .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount + 1));
+            var trip = await _context.Trips.FirstOrDefaultAsync(t => t.Id == id);
+
+            if (trip != null && trip.CurMembs_amount < trip.MaxMembs_amount)
+            {
+                trip.CurMembs_amount++;
+                await _context.SaveChangesAsync();
+            }
         }
         public async Task DecreaseMembersCount(int id)
         {
-            await _context.Trips
-                .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
-                .ExecuteUpdateAsync(s => s
-                    .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
+            var trip = await _context.Trips.FirstOrDefaultAsync(t => t.Id == id);
+
+            if (trip != null && trip.CurMembs_amount <= trip.MaxMembs_amount)
+            {
+                trip.CurMembs_amount--;
+                await _context.SaveChangesAsync();
+            }
         }
         
         public async Task<List<Trip>> GetCreatorsTrips(int id)

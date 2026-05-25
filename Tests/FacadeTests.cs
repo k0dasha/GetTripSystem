@@ -42,14 +42,43 @@ namespace GetTripSystem.Tests
         [TestMethod]
         public async Task Add_CheckAddMember()
         {
-            await _facade.RegisterTrip("Поход", "Столби", 0, 5, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            await _facade.AddUser("Аня", "123321");
+            await _facade.AddUser("Саня", "123321");
+            await _facade.AddUser("Маша", "123321");
+
             await _facade.AddMember(1, 1);
             await _facade.AddMember(2, 1);
 
             var members = await _facade.GetMembersOfTrip(1);
             Assert.AreEqual(2, members.Count);
+            Assert.AreEqual("Аня", members[0]);
 
+        }
+        [TestMethod]
+        public async Task Add_CheckMembersLimit()
+        {
+            await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            await _facade.AddUser("Аня", "123321");
+            await _facade.AddUser("Саня", "123321");
+            await _facade.AddUser("Маша", "123321");
 
+            await _facade.AddMember(1, 1);
+            await _facade.AddMember(2, 1);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => { await _facade.AddMember(3, 1); });
+
+        }
+        [TestMethod]
+        public async Task Kick_ShouldKickMember()
+        {
+            await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            await _facade.AddUser("Аня", "123321");
+            await _facade.AddMember(1, 1);
+            await _facade.KickMember(1); //Убрать executeAsync?
+
+            var members = await _facade.GetMembersOfTrip(1);
+            Assert.AreEqual(null, members[0]);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace GetTripSystem.Interfaces
         Task AddPicture(int tripID, string filePath);
         Task RegisterTrip(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact);
+        Task AddUser(string name, string password);
     }
 }
