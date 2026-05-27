@@ -32,6 +32,9 @@ namespace GetTripSystem.Repositories
         }
         public async Task<List<string>> GetUsersNamesByIDs(List<int> userIDs)
         {
+            if (userIDs == null)
+                throw new Exception("Список пуст");
+            else
             return await _context.Users
                 .Where(u => userIDs.Contains(u.Id))
                 .Select(u => u.Name)

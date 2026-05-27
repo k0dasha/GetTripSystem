@@ -46,7 +46,7 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(trip);
             await _context.SaveChangesAsync();
         }
-        public async Task Delete(int id)
+        public async Task Delete(int id) //0
         {
             await _context.Trips
                 .Where(x => x.Id == id)
@@ -64,26 +64,21 @@ namespace GetTripSystem.Repositories
         }
         public async Task IncreaseMembersCount(int id)
         {
-            var trip = await _context.Trips.FirstOrDefaultAsync(t => t.Id == id);
+            await _context.Trips
+            .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
+            .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount + 1));
 
-            if (trip != null && trip.CurMembs_amount < trip.MaxMembs_amount)
-            {
-                trip.CurMembs_amount++;
-                await _context.SaveChangesAsync();
-            }
         }
         public async Task DecreaseMembersCount(int id)
         {
-            var trip = await _context.Trips.FirstOrDefaultAsync(t => t.Id == id);
+            await _context.Trips
+            .Where(t => t.Id == id)
+            .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
 
-            if (trip != null && trip.CurMembs_amount <= trip.MaxMembs_amount)
-            {
-                trip.CurMembs_amount--;
-                await _context.SaveChangesAsync();
-            }
         }
-        
-        public async Task<List<Trip>> GetCreatorsTrips(int id)
+        public async Task<List<Trip>> GetCreatorsTrips(int id) //0
         {
             return await _context.Trips.Where(c => c.CreatorID == id).ToListAsync();
         }

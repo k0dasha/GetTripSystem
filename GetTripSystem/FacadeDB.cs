@@ -32,7 +32,7 @@ namespace GetTripSystem
             return _tripRepository.Add(tripName, location, curMembs, maxMembs,
         creatorID, desc, date, creatorContact);
         }
-        public async Task AddPicture(int tripId, string filePath) //_picRepositor
+        public async Task AddPicture(int tripId, string filePath)
         {
             var fileName = Hasher.HashPicture(filePath);
 
@@ -58,17 +58,17 @@ namespace GetTripSystem
             else
             { return _tripRepository.SortByLocation(); }
         }
-        public async Task<List<string>> GetMembersOfTrip(int tripId) //reg user
+        public async Task<List<string>> GetMembersOfTrip(int tripId)
         {
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
             return await _userRepository.GetUsersNamesByIDs(userIDs);
         }
-        public async Task KickMember(int id) //reg user
+        public async Task KickMember(int id) //CHECK
         {
             await _regRepository.UpdateMember(id, "kicked");
             await CheckUserBan(id);
         }
-        public async Task AddMember(int userID, int tripID) //reg trip
+        public async Task AddMember(int userID, int tripID)
         {
             var curMembs = await _regRepository.GetCurrentMembersCount(tripID);
             var maxMembs = await _tripRepository.GetMaxMembersCount(tripID);
@@ -85,16 +85,16 @@ namespace GetTripSystem
         {
             return _tripRepository.ReadAll();
         }
-        public async Task<Trip?> GetTrip(int userID, int tripID) //reg trip
+        public async Task<Trip?> GetTrip(int userID, int tripID)
         {
             var userStatus = await _regRepository.GetUserStatus(userID, tripID);
             if (userStatus == "kicked")
             {
-                return null;
+                throw new InvalidOperationException("Запись недоступна");
             }
             else { return await _tripRepository.ReadByID(tripID); }
         }
-        public async Task CheckUserBan(int userId)
+        public async Task CheckUserBan(int userId) //CHECK
         {
             int count = await _regRepository.GetCountByUser(userId);
 

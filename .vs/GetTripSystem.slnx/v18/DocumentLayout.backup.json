@@ -7,28 +7,16 @@
       "RelativeMoniker": "D:0:0:{F42E06BF-6E75-4FB3-9A01-9282E2856426}|Tests\\GetTripSystem.Tests.csproj|solutionrelative:tests\\facadetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\facadedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\facadedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\entities\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\entities\\registration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\interfaces\\imanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\interfaces\\imanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\repositories\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\repositories\\registrationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,21 +45,12 @@
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IManagement.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Interfaces\\IManagement.cs",
-              "RelativeDocumentMoniker": "GetTripSystem\\Interfaces\\IManagement.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Interfaces\\IManagement.cs*",
-              "RelativeToolTip": "GetTripSystem\\Interfaces\\IManagement.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T12:06:48.779Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Registration.cs",
               "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Entities\\Registration.cs",
               "RelativeDocumentMoniker": "GetTripSystem\\Entities\\Registration.cs",
@@ -79,20 +58,7 @@
               "RelativeToolTip": "GetTripSystem\\Entities\\Registration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T12:01:13.494Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "GetTripSystem\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T11:25:53.709Z",
+              "WhenOpened": "2026-05-27T16:54:57.211Z",
               "EditorCaption": ""
             },
             {
@@ -103,53 +69,36 @@
               "RelativeDocumentMoniker": "Tests\\FacadeTests.cs",
               "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\Tests\\FacadeTests.cs*",
               "RelativeToolTip": "Tests\\FacadeTests.cs*",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwE0AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAwwG8AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T07:11:18.091Z",
+              "WhenOpened": "2026-05-27T16:24:11.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FacadeDB.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs",
-              "RelativeDocumentMoniker": "GetTripSystem\\FacadeDB.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs*",
-              "RelativeToolTip": "GetTripSystem\\FacadeDB.cs*",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T07:06:07.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "RegistrationRepository.cs",
               "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\RegistrationRepository.cs",
               "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\RegistrationRepository.cs",
               "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\RegistrationRepository.cs",
               "RelativeToolTip": "GetTripSystem\\Repositories\\RegistrationRepository.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCsAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAgwCAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T05:16:28.575Z",
+              "WhenOpened": "2026-05-27T16:37:16Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TripRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
-              "RelativeDocumentMoniker": "GetTripSystem\\Repositories\\TripRepository.cs",
-              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\Repositories\\TripRepository.cs",
-              "RelativeToolTip": "GetTripSystem\\Repositories\\TripRepository.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAwwE4AAAA3AAAAAAAAAA==",
+              "Title": "FacadeDB.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\FacadeDB.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs",
+              "RelativeToolTip": "GetTripSystem\\FacadeDB.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAADwv2wAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T08:11:54.155Z",
+              "WhenOpened": "2026-05-27T15:56:08.723Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }

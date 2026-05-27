@@ -13,6 +13,7 @@ namespace GetTripSystem.Tests
     {
         private Context _context;
         private FacadeDB _facade;
+        private RegistrationRepository _regRepo;
 
         [TestInitialize]
         public void Setup()
@@ -25,13 +26,22 @@ namespace GetTripSystem.Tests
 
             var _tripRepo = new TripRepository(_context);
             var _userRepo = new UserRepository(_context);
-            var _regRepo = new RegistrationRepository(_context);
+            _regRepo = new RegistrationRepository(_context);
             var _picRepo = new PictureRepository(_context);
 
             _facade = new FacadeDB(_userRepo, _tripRepo, _picRepo, _regRepo);
         }
+        private Registration CreateReg(int tripID)
+        {
+            return new Registration
+            {
+                UserID = 1,
+                TripID = tripID,
+                UserStatus = "kicked"
+            };
+        }
         [TestMethod]
-        public async Task Add_CheckAddPic() //
+        public async Task AddPicture_CheckAddPic()
         {
             string filePath = @"C:\Users\Даша\source\repos\GetTripSystem\Tests\Pic.png";
             await _facade.AddPicture(1, filePath);
@@ -40,15 +50,17 @@ namespace GetTripSystem.Tests
             Assert.AreEqual(1, pictures.Count);
         }
         [TestMethod]
-        public async Task Add_CheckAddMember()
+        public async Task AddMember_CheckListMember()
         {
             await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
             await _facade.AddUser("Аня", "123321");
             await _facade.AddUser("Саня", "123321");
-            await _facade.AddUser("Маша", "123321");
 
-            await _facade.AddMember(1, 1);
-            await _facade.AddMember(2, 1);
+            var users = await _context.Users.ToListAsync();
+            var trip = (await _facade.GetAllTrips()).First();
+
+            await _regRepo.Add(users[0].Id, trip.Id);
+            await _regRepo.Add(users[1].Id, trip.Id);
 
             var members = await _facade.GetMembersOfTrip(1);
             Assert.AreEqual(2, members.Count);
@@ -56,29 +68,49 @@ namespace GetTripSystem.Tests
 
         }
         [TestMethod]
-        public async Task Add_CheckMembersLimit()
+        public async Task ShouldCreateUser()
         {
-            await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
             await _facade.AddUser("Аня", "123321");
-            await _facade.AddUser("Саня", "123321");
-            await _facade.AddUser("Маша", "123321");
-
-            await _facade.AddMember(1, 1);
-            await _facade.AddMember(2, 1);
-
-            await Assert.ThrowsAsync<InvalidOperationException>(async () => { await _facade.AddMember(3, 1); });
+            var users = await _context.Users.ToListAsync();
+            Assert.AreEqual("Аня", users[0].Name);
+        }
+        [TestMethod]
+        public async Task CheckMembersLimit()
+        {
+            await _facade.RegisterTrip("Поход", "Столби", 2, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => { await _facade.AddMember(1, 1);});
 
         }
         [TestMethod]
-        public async Task Kick_ShouldKickMember()
+        public async Task Kick_ShouldNotGetTrip()
         {
             await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
-            await _facade.AddUser("Аня", "123321");
-            await _facade.AddMember(1, 1);
-            await _facade.KickMember(1); //Убрать executeAsync?
 
-            var members = await _facade.GetMembersOfTrip(1);
-            Assert.AreEqual(null, members[0]);
+            await _context.Registrations.AddAsync(new Registration
+            {
+                UserID = 1,
+                TripID = 1,
+                UserStatus = "kicked"
+            });
+
+            await _context.SaveChangesAsync();
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => { await _facade.GetTrip(1, 1); });
+        }
+        [TestMethod]
+        public async Task BanUserCheck()
+        {
+            await _facade.AddUser("Аня", "123321");
+            var users = await _context.Users.ToListAsync();
+
+            await _context.Registrations.AddRangeAsync(
+                CreateReg(tripID: 1),
+                CreateReg(tripID: 2),
+                CreateReg(tripID: 3)
+            );
+            await _context.SaveChangesAsync();
+
+            await _facade.CheckUserBan(1);
+            Assert.AreEqual(true, users[0].Banned);
         }
     }
 }

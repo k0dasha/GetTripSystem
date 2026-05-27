@@ -33,7 +33,7 @@ namespace GetTripSystem.Repositories
                 .SetProperty(x => x.UserStatus, status));
             //await _context.SaveChangesAsync();
         }
-        public async Task<List<Registration>> GetUsersRegistrations (int userId) //где юзер статус не равен kicked или left
+        public async Task<List<Registration>> GetUsersRegistrations (int userId) //0
         {
             return await _context.Registrations.Where(c => c.UserID == userId && c.UserStatus == "active").ToListAsync();
         }
