@@ -12,7 +12,6 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-
         public async Task<List<Trip>> ReadAll()
         {
             return await _context.Trips.ToListAsync();
@@ -46,12 +45,6 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(trip);
             await _context.SaveChangesAsync();
         }
-        public async Task Delete(int id) //0
-        {
-            await _context.Trips
-                .Where(x => x.Id == id)
-                .ExecuteDeleteAsync();
-        }
         public async Task Update(int id, int maxMembs, string desc, DateTime date, string creatorContact)
         {
             await _context.Trips
@@ -69,18 +62,6 @@ namespace GetTripSystem.Repositories
             .ExecuteUpdateAsync(s => s
             .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount + 1));
 
-        }
-        public async Task DecreaseMembersCount(int id)
-        {
-            await _context.Trips
-            .Where(t => t.Id == id)
-            .ExecuteUpdateAsync(s => s
-            .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
-
-        }
-        public async Task<List<Trip>> GetCreatorsTrips(int id) //0
-        {
-            return await _context.Trips.Where(c => c.CreatorID == id).ToListAsync();
         }
         public Task<int> GetMaxMembersCount(int tripID)
         {

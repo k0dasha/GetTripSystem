@@ -33,10 +33,6 @@ namespace GetTripSystem.Repositories
                 .SetProperty(x => x.UserStatus, status));
             //await _context.SaveChangesAsync();
         }
-        public async Task<List<Registration>> GetUsersRegistrations (int userId) //0
-        {
-            return await _context.Registrations.Where(c => c.UserID == userId && c.UserStatus == "active").ToListAsync();
-        }
         public async Task<List<int>> GetMembersOfTrip(int tripId)
         {
             return await _context.Registrations

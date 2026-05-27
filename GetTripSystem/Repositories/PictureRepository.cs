@@ -25,12 +25,6 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(pic);
             await _context.SaveChangesAsync();
         }
-        public async Task Delete(int id) //0
-        {
-            await _context.Pictures
-                .Where(x => x.Id == id)
-                .ExecuteDeleteAsync();
-        }
         public async Task<List<string>> GetAll(int tripId)
         {
             return await _context.Pictures

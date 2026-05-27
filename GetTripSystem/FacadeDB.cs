@@ -63,7 +63,7 @@ namespace GetTripSystem
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
             return await _userRepository.GetUsersNamesByIDs(userIDs);
         }
-        public async Task KickMember(int id) //CHECK
+        public async Task KickMember(int id)
         {
             await _regRepository.UpdateMember(id, "kicked");
             await CheckUserBan(id);
@@ -94,7 +94,7 @@ namespace GetTripSystem
             }
             else { return await _tripRepository.ReadByID(tripID); }
         }
-        public async Task CheckUserBan(int userId) //CHECK
+        public async Task CheckUserBan(int userId)
         {
             int count = await _regRepository.GetCountByUser(userId);
 
