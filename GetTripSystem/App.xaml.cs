@@ -41,7 +41,6 @@ namespace GetTripSystem
             services.AddTransient<MainWindow>();
 
             ServiceProvider = services.BuildServiceProvider();
-
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }
