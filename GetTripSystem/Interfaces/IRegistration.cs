@@ -10,5 +10,6 @@ namespace GetTripSystem.Interfaces
         Task<List<Trip>> GetAllTrips();
         Task<Trip?> GetTrip(int userID, int tripID);
         Task<List<string>> GetPictures(int tripID);
+        Task<List<Trip>> ToSort(int parametr);
     }
 }
