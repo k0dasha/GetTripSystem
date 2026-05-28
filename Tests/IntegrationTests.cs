@@ -84,5 +84,16 @@ namespace GetTripSystem.Tests
             var members = await _facade.GetMembersOfTrip(1);
             Assert.AreEqual(0, members.Count);
         }
+        [TestMethod]
+        public async Task AddMember_ShouldNotDublicateReg()
+        {
+            await _facade.AddUser("Аня", "123321");
+            await _facade.RegisterTrip("Trip", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
+            var users = await _context.Users.ToListAsync();
+            var trip = (await _facade.GetAllTrips()).First();
+
+            await _facade.AddMember(users[0].Id, trip.Id);
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => { await _facade.AddMember(users[0].Id, trip.Id); });
+        }
     }
 }

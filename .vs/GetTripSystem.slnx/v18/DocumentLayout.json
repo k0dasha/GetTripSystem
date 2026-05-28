@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|c:\\users\\\u0434\u0430\u0448\u0430\\source\\repos\\gettripsystem\\gettripsystem\\facadedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABDD55C7-B8D9-2549-9D1D-2037ED03ED41}|GetTripSystem\\GetTripSystem.csproj|solutionrelative:gettripsystem\\facadedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,9 +48,35 @@
               "RelativeDocumentMoniker": "GetTripSystem\\App.xaml.cs",
               "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\App.xaml.cs",
               "RelativeToolTip": "GetTripSystem\\App.xaml.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACoAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T10:49:10.439Z",
+              "WhenOpened": "2026-05-28T12:05:15.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DAL.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\DAL.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\DAL.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\DAL.cs",
+              "RelativeToolTip": "GetTripSystem\\DAL.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T12:01:19.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FacadeDB.cs",
+              "DocumentMoniker": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs",
+              "RelativeDocumentMoniker": "GetTripSystem\\FacadeDB.cs",
+              "ToolTip": "C:\\Users\\\u0414\u0430\u0448\u0430\\source\\repos\\GetTripSystem\\GetTripSystem\\FacadeDB.cs",
+              "RelativeToolTip": "GetTripSystem\\FacadeDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-28T11:36:17.565Z",
               "EditorCaption": ""
             }
           ]

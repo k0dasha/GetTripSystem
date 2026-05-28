@@ -72,11 +72,16 @@ namespace GetTripSystem
         {
             var curMembs = await _regRepository.GetCurrentMembersCount(tripID);
             var maxMembs = await _tripRepository.GetMaxMembersCount(tripID);
+            var repeatReg = await _regRepository.AwareRepeatedRegistration(userID, tripID);
 
             if (curMembs < maxMembs)
             {
-                await _regRepository.Add(userID, tripID);
-                await _tripRepository.IncreaseMembersCount(tripID);
+                if (repeatReg == true)
+                {
+                    await _regRepository.Add(userID, tripID);
+                    await _tripRepository.IncreaseMembersCount(tripID);
+                }
+                else throw new InvalidOperationException("Повторная запись невозможна");
             }
             else throw new InvalidOperationException("Ошибка записи: мест нет");
         }

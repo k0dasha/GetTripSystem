@@ -49,7 +49,7 @@ namespace GetTripSystem.Tests
             Assert.AreEqual("Поход", trips[0].TripName);
         }
         [TestMethod]
-        public async Task Sort_ShouldGet()
+        public async Task Sort_ShouldGetSortedList()
         {
             await _context.Trips.AddRangeAsync(
                 CreateTrip(tripName: "Trip1"),

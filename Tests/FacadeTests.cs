@@ -67,6 +67,7 @@ namespace GetTripSystem.Tests
             Assert.AreEqual("Аня", members[0]);
 
         }
+
         [TestMethod]
         public async Task ShouldCreateUser()
         {

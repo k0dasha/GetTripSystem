@@ -56,5 +56,14 @@ namespace GetTripSystem.Repositories
             return await _context.Registrations
                 .CountAsync(r => r.UserID == userId && r.UserStatus == "kicked");
         }
+        public async Task<bool> AwareRepeatedRegistration(int userId, int tripId)
+        {
+            var exists = await _context.Registrations
+            .AnyAsync(r => r.UserID == userId && r.TripID == tripId);
+
+            if (exists)
+                return false;
+            else return true;
+        }
     }
 }
