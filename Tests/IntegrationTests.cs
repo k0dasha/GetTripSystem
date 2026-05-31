@@ -45,6 +45,7 @@ namespace GetTripSystem.Tests
         [TestMethod]
         public async Task ToSortByDate_CheckCorrectTripList()
         {
+            await _facade.AddUser("Аня", "123321");
             await _facade.RegisterTrip("Trip1", "Столби", 0, 2, 1, "Тут описание", new DateTime(2026, 1, 1), "вк.ком/ссылка");
             await _facade.RegisterTrip("Trip2", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
 
@@ -72,6 +73,7 @@ namespace GetTripSystem.Tests
         public async Task KickMember_ShouldKick()
         {
             await _facade.AddUser("Аня", "123321");
+            await _facade.RegisterTrip("Trip", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
             await _context.Registrations.AddAsync(new Registration
             {
                 UserID = 1,

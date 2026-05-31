@@ -3,6 +3,8 @@ using GetTripSystem.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using static GetTripSystem.DAL;
 
@@ -43,9 +45,11 @@ namespace GetTripSystem.Tests
         [TestMethod]
         public async Task AddPicture_CheckAddPic()
         {
-            string filePath = @"C:\Users\Даша\source\repos\GetTripSystem\Tests\Pic.png";
-            await _facade.AddPicture(1, filePath);
+            string exeDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string projectRoot = Path.GetFullPath(Path.Combine(exeDirectory, @"..\..\.."));
+            string filePath = Path.Combine(projectRoot, "Pic.png");
 
+            await _facade.AddPicture(1, filePath);
             var pictures = await _facade.GetPictures(1);
             Assert.AreEqual(1, pictures.Count);
         }
