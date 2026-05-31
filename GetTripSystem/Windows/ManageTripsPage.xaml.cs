@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GetTripSystem.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,19 +19,17 @@ namespace GetTripSystem.Windows
     /// </summary>
     public partial class ManageTripsPage : Page
     {
-        public ManageTripsPage()
+        private readonly ICreateOperation _createOps;
+        private readonly IManagement _manage;
+        private readonly User _user;
+        private List<Trip> UserTripsList;
+        public ManageTripsPage(ICreateOperation createOperation, IManagement management, User user)
         {
             InitializeComponent();
-        }
-
-        private void Button_EditTrip_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_DeleteTrip_Click(object sender, RoutedEventArgs e)
-        {
-
+            _createOps = createOperation;
+            _manage = management;
+            _user = user;
+            LoadUserTrips();
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
@@ -41,7 +40,12 @@ namespace GetTripSystem.Windows
         private void Button_AddTrip_Click(object sender, RoutedEventArgs e)
         {
             CreateTripWindow createTripWindow = new CreateTripWindow();
-            createTripWindow.Show();
+            createTripWindow.ShowDialog();
+        }
+        private async Task LoadUserTrips()
+        {
+            UserTripsList = await _manage.GetUserTrips(_user.Id);
+            UserTripsListView.ItemsSource = UserTripsList;
         }
     }
 }

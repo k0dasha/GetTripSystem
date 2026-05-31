@@ -35,7 +35,7 @@ namespace GetTripSystem.Windows
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RegistrationPage(_createOps));
+            NavigationService.Navigate(new RegistrationPage(_serviceProvider));
         }
 
         private async void Button_Enter_Click(object sender, RoutedEventArgs e)

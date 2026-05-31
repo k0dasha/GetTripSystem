@@ -25,19 +25,25 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(reg);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateMember(int id, string status)
+        public async Task UpdateMember(int tripId, string status, int userId)
         {
             await _context.Registrations
-                .Where(x => x.Id == id)
+                .Where(x => x.TripID == tripId && x.UserID == userId)
                 .ExecuteUpdateAsync(s => s
                 .SetProperty(x => x.UserStatus, status));
-            //await _context.SaveChangesAsync();
         }
         public async Task<List<int>> GetMembersOfTrip(int tripId)
         {
             return await _context.Registrations
                 .Where(r => r.TripID == tripId && r.UserStatus == "active")
                 .Select(r => r.UserID)
+                .ToListAsync();
+        }
+        public async Task<List<int>> GetUserRegs(int userId)
+        {
+            return await _context.Registrations
+                .Where(r => r.UserID == userId && r.UserStatus == "active")
+                .Select(r => r.TripID)
                 .ToListAsync();
         }
         public async Task<string?> GetUserStatus(int userId, int tripId)
@@ -59,7 +65,7 @@ namespace GetTripSystem.Repositories
         public async Task<bool> AwareRepeatedRegistration(int userId, int tripId)
         {
             var exists = await _context.Registrations
-            .AnyAsync(r => r.UserID == userId && r.TripID == tripId);
+            .AnyAsync(r => r.UserID == userId && r.TripID == tripId && r.UserStatus == "active");
 
             if (exists)
                 return false;

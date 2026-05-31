@@ -73,10 +73,16 @@ namespace GetTripSystem
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
             return await _userRepository.GetUsersNamesByIDs(userIDs);
         }
-        public async Task KickMember(int id)
+        public async Task KickMember(int userId, int tripId)
         {
-            await _regRepository.UpdateMember(id, "kicked");
-            await CheckUserBan(id);
+            await _regRepository.UpdateMember(tripId, "kicked", userId);
+            await _tripRepository.DecreaseMembersCount(tripId);
+            await CheckUserBan(userId);
+        }
+        public async Task CancelRegistration(int userId, int tripId)
+        {
+            await _regRepository.UpdateMember(tripId, "left", userId);
+            await _tripRepository.DecreaseMembersCount(tripId);
         }
         public async Task AddMember(int userID, int tripID)
         {
@@ -95,7 +101,15 @@ namespace GetTripSystem
             }
             else throw new InvalidOperationException("Ошибка записи: мест нет");
         }
-        
+        public async Task<List<Trip>> GetUserRegistrations(int userId)
+        {
+            List<int> tripIDs = await _regRepository.GetUserRegs(userId);
+            return await _tripRepository.GetTripsByIDs(tripIDs);
+        }
+        public async Task<List<Trip>> GetUserTrips(int userId)
+        {
+            return await _tripRepository.GetTripsByCreatorID(userId);
+        }
         public Task<List<Trip>> GetAllTrips()
         {
             return _tripRepository.ReadAll();

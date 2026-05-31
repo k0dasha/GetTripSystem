@@ -8,6 +8,9 @@ namespace GetTripSystem.Interfaces
     {
         Task<List<string>> GetMembersOfTrip(int tripId);
         Task<User?> GetUser(string userName, string passwd);
-        Task KickMember(int id);
+        Task KickMember(int userId, int tripId);
+        Task CancelRegistration(int userId, int tripId);
+        Task<List<Trip>> GetUserRegistrations(int userId);
+        Task<List<Trip>> GetUserTrips(int userId);
     }
 }

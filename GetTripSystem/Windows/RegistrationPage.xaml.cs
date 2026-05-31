@@ -1,4 +1,5 @@
 ﻿using GetTripSystem.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,10 +21,14 @@ namespace GetTripSystem.Windows
     public partial class RegistrationPage : Page
     {
         private readonly ICreateOperation _createOps;
-        public RegistrationPage(ICreateOperation createOperation)
+        private readonly IManagement _manage;
+        private readonly IServiceProvider _serviceProvider;
+        public RegistrationPage(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _createOps = createOperation;
+            _createOps = serviceProvider.GetRequiredService<ICreateOperation>();
+            _manage = serviceProvider.GetRequiredService<IManagement>();
+            _serviceProvider = serviceProvider;
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
@@ -31,13 +36,30 @@ namespace GetTripSystem.Windows
             NavigationService.GoBack();
         }
 
-        private void Button_Reg_Click(object sender, RoutedEventArgs e)
+        private async void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
             string username = textBox_Login.Text;
             string passwd = textBox_Passwd.Text;
 
-            _createOps.RegisterUser(username, passwd);
-            
+            if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(passwd))
+            {
+                _createOps.RegisterUser(username, passwd);
+                var user = await _manage.GetUser(username, passwd);
+
+                await Application.Current.Dispatcher.InvokeAsync(() =>
+                {
+                    MainWindow mainWindow = new MainWindow(_serviceProvider, user);
+                    mainWindow.Show();
+
+                    var window = Window.GetWindow(this);
+                    window.Close();
+                });
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля", "Ошибка регистрации",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

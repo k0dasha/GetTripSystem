@@ -70,7 +70,7 @@
         <TextBox x:Name="textBox_Passwd" Template="{DynamicResource TextBoxTemplate6}"
             Width="280"
             FontSize="18"
-            
+            Text="1234"
             Padding="5,2,2,2"
             Style="{StaticResource BaseFont}"
             FontWeight="Bold"

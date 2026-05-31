@@ -14,11 +14,24 @@ namespace GetTripSystem.Repositories
         }
         public async Task<List<Trip>> ReadAll()
         {
-            return await _context.Trips.ToListAsync();
+            return await _context.Trips.Where(u => u.CurMembs_amount != u.MaxMembs_amount).ToListAsync();
+        }
+        public async Task<List<Trip>> GetTripsByCreatorID(int creatorId)
+        {
+            return await _context.Trips.Where(u => u.CreatorID == creatorId).ToListAsync();
         }
         public async Task<Trip?> ReadByID(int tripId)
         {
             return await _context.Trips.FirstOrDefaultAsync(u => u.Id == tripId);
+        }
+        public async Task<List<Trip>> GetTripsByIDs(List<int> tripIDs)
+        {
+            if (tripIDs == null)
+                throw new Exception("Список пуст");
+            else
+                return await _context.Trips
+                    .Where(u => tripIDs.Contains(u.Id))
+                    .ToListAsync();
         }
         public async Task<List<Trip>> SortByDate()
         {
@@ -26,7 +39,7 @@ namespace GetTripSystem.Repositories
         }
         public async Task<List<Trip>> SortByLocation()
         {
-            return await _context.Trips.OrderBy(c => c.Location).ToListAsync();
+            return await _context.Trips.OrderByDescending(c => c.Location).ToListAsync();
         }
         public async Task Add(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
@@ -61,6 +74,14 @@ namespace GetTripSystem.Repositories
             .Where(t => t.Id == id && t.CurMembs_amount < t.MaxMembs_amount)
             .ExecuteUpdateAsync(s => s
             .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount + 1));
+
+        }
+        public async Task DecreaseMembersCount(int id)
+        {
+            await _context.Trips
+            .Where(t => t.Id == id)
+            .ExecuteUpdateAsync(s => s
+            .SetProperty(t => t.CurMembs_amount, t => t.CurMembs_amount - 1));
 
         }
         public Task<int> GetMaxMembersCount(int tripID)

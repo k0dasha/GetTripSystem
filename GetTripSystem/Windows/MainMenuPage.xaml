@@ -55,17 +55,28 @@
         Foreground="#9F9FBB"
         Margin="20,10"
     />
-            <ComboBox Style="{DynamicResource ComboBoxStyle2}" 
+            <ComboBox x:Name="comboBox_selectSorting" Style="{DynamicResource ComboBoxStyle2}" 
             Width="115" Height="23" Background="White" SelectionChanged="ComboBox_SelectionChanged">
-                <TextBlock><Run Text="Дата" Foreground="Black" Style="{StaticResource BaseFont}"/></TextBlock>
-                <TextBlock><Run Text="Локация" Foreground="Black" Style="{StaticResource BaseFont}"/></TextBlock>
-            </ComboBox >
+                <ComboBoxItem Content="Дата" Foreground="Black" Style="{StaticResource BaseFont}"/>
+                <ComboBoxItem Content="Локация" Foreground="Black" Style="{StaticResource BaseFont}"/>
+            </ComboBox>
 
         </StackPanel>
-        <ListView>
+        <ListView x:Name="TripListView" ItemsSource="{Binding TripList}" Foreground="#FF141212"
+                  MouseDoubleClick="TripListView_MouseDoubleClick" SelectionMode="Single">
             <ListView.View>
                 <GridView>
-
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding TripName}" Width="250"/>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="100"/>
+                    <GridViewColumn Header="Локация" DisplayMemberBinding="{Binding Location}" Width="225"/>
+                    <GridViewColumn Header="Кол-во человек" Width="100">
+                        <GridViewColumn.DisplayMemberBinding>
+                            <MultiBinding StringFormat="{}{0} / {1}">
+                                <Binding Path="CurMembs_amount"/>
+                                <Binding Path="MaxMembs_amount"/>
+                            </MultiBinding>
+                        </GridViewColumn.DisplayMemberBinding>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
