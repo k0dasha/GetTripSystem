@@ -1,5 +1,6 @@
 ﻿using GetTripSystem.Interfaces;
 using GetTripSystem.Repositories;
+using GetTripSystem.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +39,7 @@ namespace GetTripSystem
             services.AddScoped<IManagement>(sp => sp.GetRequiredService<FacadeDB>());
             services.AddScoped<IRegistration>(sp => sp.GetRequiredService<FacadeDB>());
 
-            services.AddTransient<MainWindow>();
+            services.AddTransient<AuthorizeWindow>();
 
             ServiceProvider = services.BuildServiceProvider();
 
@@ -48,8 +49,8 @@ namespace GetTripSystem
                 context.Database.Migrate();
             }
 
-            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            var authorizeWindow = ServiceProvider.GetRequiredService<AuthorizeWindow>();
+            authorizeWindow.Show();
         }
         
     }

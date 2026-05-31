@@ -57,8 +57,8 @@ namespace GetTripSystem.Tests
         public async Task AddMember_CheckListMember()
         {
             await _facade.RegisterTrip("Поход", "Столби", 0, 2, 1, "Тут описание", DateTime.Now, "вк.ком/ссылка");
-            await _facade.AddUser("Аня", "123321");
-            await _facade.AddUser("Саня", "123321");
+            await _facade.RegisterUser("Аня", "123321");
+            await _facade.RegisterUser("Саня", "123321");
 
             var users = await _context.Users.ToListAsync();
             var trip = (await _facade.GetAllTrips()).First();
@@ -75,7 +75,7 @@ namespace GetTripSystem.Tests
         [TestMethod]
         public async Task ShouldCreateUser()
         {
-            await _facade.AddUser("Аня", "123321");
+            await _facade.RegisterUser("Аня", "123321");
             var users = await _context.Users.ToListAsync();
             Assert.AreEqual("Аня", users[0].Name);
         }
@@ -104,7 +104,7 @@ namespace GetTripSystem.Tests
         [TestMethod]
         public async Task BanUserCheck()
         {
-            await _facade.AddUser("Аня", "123321");
+            await _facade.RegisterUser("Аня", "123321");
             var users = await _context.Users.ToListAsync();
 
             await _context.Registrations.AddRangeAsync(

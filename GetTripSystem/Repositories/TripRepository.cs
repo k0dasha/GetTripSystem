@@ -18,7 +18,7 @@ namespace GetTripSystem.Repositories
         }
         public async Task<Trip?> ReadByID(int tripId)
         {
-            return await _context.Trips.FindAsync(tripId);
+            return await _context.Trips.FirstOrDefaultAsync(u => u.Id == tripId);
         }
         public async Task<List<Trip>> SortByDate()
         {

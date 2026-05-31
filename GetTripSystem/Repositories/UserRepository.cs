@@ -40,5 +40,9 @@ namespace GetTripSystem.Repositories
                 .Select(u => u.Name)
                 .ToListAsync();
         }
+        public async Task<User?> GetUser(string username)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Name == username);
+        }
     }
 }

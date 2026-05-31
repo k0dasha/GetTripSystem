@@ -1,6 +1,6 @@
 ﻿using GetTripSystem.Interfaces;
-using GetTripSystem.Windows;
-using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,27 +9,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GetTripSystem
+namespace GetTripSystem.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для AuthorizeWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AuthorizeWindow : Window
     {
         private readonly IServiceProvider _serviceProvider;
-        private User user { get; set;  }
-
-        public MainWindow(IServiceProvider serviceProvider, User currentUser)
+        public AuthorizeWindow(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            
-            user = currentUser;
             _serviceProvider = serviceProvider;
-
-            MainFrame.Content = new MainMenuPage(serviceProvider, user);
+            MainFrame.Content = new AuthorizationPage(serviceProvider);
         }
     }
 }

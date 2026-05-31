@@ -1,0 +1,64 @@
+﻿<Page x:Class="GetTripSystem.Windows.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GetTripSystem.Windows"
+      mc:Ignorable="d" 
+      Height="200" Width="400" 
+      Title=""
+      FontFamily="C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\Fonts\Raleway-VariableFont_wght.ttf" 
+      Background="#EBEBFC">
+
+    <StackPanel VerticalAlignment="Center">
+        <Label
+        Content ="Регистрация"
+        FontSize="24"
+        Style="{StaticResource BaseFont}"
+        FontWeight="Bold"
+        Foreground="#0F1053" HorizontalAlignment="Center" VerticalAlignment="Center"
+    />
+        <TextBox x:Name="textBox_Login" Template="{DynamicResource TextBoxTemplate1}"
+        
+        Width="280"
+        FontSize="20"
+        Style="{StaticResource BaseFont}"
+        FontWeight="Bold"
+        Foreground="#9F9FBB"
+        MaxLength="25"
+        TextWrapping="Wrap"
+    />
+        <TextBox x:Name="textBox_Passwd" Template="{DynamicResource TextBoxTemplate2}"
+        Width="280"
+        FontSize="20"
+        Style="{StaticResource BaseFont}"
+        FontWeight="Bold"
+        Foreground="#9F9FBB"
+        MaxLength="25"
+        TextWrapping="Wrap"
+        Margin="0,5"
+    />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="BackToAuthorize" Template="{DynamicResource ButtonTemplate1}"
+            Background="#EBEBFC"
+            Content="Назад"
+            Foreground="#0F1053"
+            Style="{StaticResource BaseFont}"
+            FontWeight="SemiBold"
+            FontSize="15" Click="Button_Back_Click" 
+            Width="135" Height="35"/>
+
+            <Button x:Name="Registration" Template="{DynamicResource ButtonTemplate1}"
+            Background="#0F1053"
+            Margin="10,0,0,0"
+            Content="Создать аккаунт"
+            Foreground="White"
+            Style="{StaticResource BaseFont}"
+            FontWeight="SemiBold"
+            FontSize="15" Click="Button_Reg_Click" 
+            Width="135" Height="35"/>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

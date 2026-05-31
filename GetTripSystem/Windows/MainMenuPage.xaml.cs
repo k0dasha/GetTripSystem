@@ -1,5 +1,7 @@
-﻿using System;
+﻿using GetTripSystem.Interfaces;
 using GetTripSystem.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,8 +21,16 @@ namespace GetTripSystem.Windows
     /// </summary>
     public partial class MainMenuPage : Page
     {
-        public MainMenuPage()
+        private readonly ICreateOperation _createOps;
+        private readonly IManagement _manage;
+        private readonly IRegistration _reg;
+        private User _user;
+        public MainMenuPage(IServiceProvider serviceProvider, User user)
         {
+            _manage = serviceProvider.GetRequiredService<IManagement>();
+            _reg = serviceProvider.GetRequiredService<IRegistration>();
+            _createOps = serviceProvider.GetRequiredService<ICreateOperation>();
+            _user = user;
             InitializeComponent();
         }
 

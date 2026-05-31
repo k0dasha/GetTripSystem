@@ -21,10 +21,20 @@ namespace GetTripSystem
             _picRepository = pictureRepository;
             _regRepository = registrationRepository;
         }
-        public Task AddUser(string name, string password)
+        public Task RegisterUser(string name, string password)
         {
             var pswdHash = Hasher.HashPassword(password);
             return _userRepository.Add(name, pswdHash);
+        }
+        public async Task<User?> GetUser(string userName, string passwd)
+        {
+            var user = await _userRepository.GetUser(userName);
+            var verified = Hasher.VerifyPassword(passwd, user.PasswdHash);
+
+            if (verified)
+                return user;
+            else 
+                throw new InvalidOperationException();
         }
         public Task RegisterTrip(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)
