@@ -9,6 +9,7 @@ namespace GetTripSystem.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.HasIndex(x => x.Name).IsUnique();
         }
     }
 }
