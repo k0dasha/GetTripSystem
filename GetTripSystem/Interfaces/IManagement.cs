@@ -6,7 +6,7 @@ namespace GetTripSystem.Interfaces
 {
     public interface IManagement
     {
-        Task<List<string>> GetMembersOfTrip(int tripId);
+        Task<List<User>> GetMembersOfTrip(int tripId);
         Task<User?> GetUser(string userName, string passwd);
         Task KickMember(int userId, int tripId);
         Task CancelRegistration(int userId, int tripId);

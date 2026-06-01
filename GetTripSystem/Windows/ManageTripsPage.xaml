@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
       Title="ManageTripsWindow"
-      FontFamily="C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\Fonts\Raleway-VariableFont_wght.ttf"
+      FontFamily="\Fonts\Raleway-VariableFont_wght.ttf"
       Background="#EBEBFC" >
 
     <StackPanel>
@@ -26,13 +26,29 @@
                     <GridViewColumn Header="Название" DisplayMemberBinding="{Binding TripName}" Width="250"/>
                     <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="100"/>
                     <GridViewColumn Header="Локация" DisplayMemberBinding="{Binding Location}" Width="225"/>
-                    <GridViewColumn Header="Кол-во человек" Width="100">
-                        <GridViewColumn.DisplayMemberBinding>
-                            <MultiBinding StringFormat="{}{0} / {1}">
-                                <Binding Path="CurMembs_amount"/>
-                                <Binding Path="MaxMembs_amount"/>
-                            </MultiBinding>
-                        </GridViewColumn.DisplayMemberBinding>
+                    <GridViewColumn Header="Кол-во человек" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Click="Button_WatchMembs_Click"
+                                            Tag="{Binding}"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent">
+                                        <Image Source="/Fonts/Vector.png" 
+                                                Width="16" 
+                                                Height="12"/>
+                                    </Button>
+                                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">
+                                        <TextBlock.Text>
+                                            <MultiBinding StringFormat="{}{0} / {1}">
+                                                <Binding Path="CurMembs_amount"/>
+                                                <Binding Path="MaxMembs_amount"/>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Height="200" Width="400" 
       Title=""
-      FontFamily="C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\Fonts\Raleway-VariableFont_wght.ttf" 
+      FontFamily="\Fonts\Raleway-VariableFont_wght.ttf" 
       Background="#EBEBFC">
     <Page.Resources>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>

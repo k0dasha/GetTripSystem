@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="700"
       Title=""
-      FontFamily="C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\Fonts\Raleway-VariableFont_wght.ttf" 
+      FontFamily="\Fonts\Raleway-VariableFont_wght.ttf" 
       Background="#EBEBFC">
 
     <StackPanel>

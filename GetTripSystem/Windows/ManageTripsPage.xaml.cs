@@ -36,6 +36,14 @@ namespace GetTripSystem.Windows
         {
             NavigationService.GoBack();
         }
+        private void Button_WatchMembs_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Trip trip = button.Tag as Trip;
+
+            KickMembersWindow kickWindow = new KickMembersWindow(_manage, trip);
+            kickWindow.ShowDialog();
+        }
 
         private void Button_AddTrip_Click(object sender, RoutedEventArgs e)
         {

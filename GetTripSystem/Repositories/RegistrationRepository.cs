@@ -51,7 +51,7 @@ namespace GetTripSystem.Repositories
             return await _context.Registrations
                 .Where(r => r.UserID == userId && r.TripID == tripId)
                 .Select(r => r.UserStatus)
-                .FirstOrDefaultAsync();
+                .LastOrDefaultAsync();
         }
         public async Task<int> GetCurrentMembersCount(int tripID)
         {
@@ -61,6 +61,11 @@ namespace GetTripSystem.Repositories
         {
             return await _context.Registrations
                 .CountAsync(r => r.UserID == userId && r.UserStatus == "kicked");
+        }
+        public async Task<int> GetLeftsCount(int tripId, int userId)
+        {
+            return await _context.Registrations
+                .CountAsync(r => r.TripID == tripId && r.UserID == userId && r.UserStatus == "left");
         }
         public async Task<bool> AwareRepeatedRegistration(int userId, int tripId)
         {

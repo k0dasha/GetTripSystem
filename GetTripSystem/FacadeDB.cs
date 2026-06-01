@@ -68,10 +68,10 @@ namespace GetTripSystem
             else
             { return _tripRepository.SortByLocation(); }
         }
-        public async Task<List<string>> GetMembersOfTrip(int tripId)
+        public async Task<List<User>> GetMembersOfTrip(int tripId)
         {
             List<int> userIDs = await _regRepository.GetMembersOfTrip(tripId);
-            return await _userRepository.GetUsersNamesByIDs(userIDs);
+            return await _userRepository.GetUsersByIDs(userIDs);
         }
         public async Task KickMember(int userId, int tripId)
         {
@@ -81,8 +81,13 @@ namespace GetTripSystem
         }
         public async Task CancelRegistration(int userId, int tripId)
         {
-            await _regRepository.UpdateMember(tripId, "left", userId);
-            await _tripRepository.DecreaseMembersCount(tripId);
+            int leftCount = await _regRepository.GetLeftsCount(tripId, userId);
+            if (leftCount < 1)
+            {
+                await _regRepository.UpdateMember(tripId, "left", userId);
+                await _tripRepository.DecreaseMembersCount(tripId);
+            }
+            else throw new InvalidOperationException();
         }
         public async Task AddMember(int userID, int tripID)
         {
@@ -110,9 +115,9 @@ namespace GetTripSystem
         {
             return await _tripRepository.GetTripsByCreatorID(userId);
         }
-        public Task<List<Trip>> GetAllTrips()
+        public Task<List<Trip>> GetAllTrips(int userId)
         {
-            return _tripRepository.ReadAll();
+            return _tripRepository.ReadAll(userId);
         }
         public async Task<Trip?> GetTrip(int userID, int tripID)
         {

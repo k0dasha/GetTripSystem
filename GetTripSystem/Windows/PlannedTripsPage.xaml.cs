@@ -35,12 +35,33 @@ namespace GetTripSystem.Windows
         {
             var selectedItem = RegsListView.SelectedItem;
 
-            if (selectedItem is Trip trip)
+            try
             {
-                int tripId = trip.Id;
-                int userId = _user.Id;
-                await _manage.CancelRegistration(userId, tripId);
-                await LoadRegs();
+                if (selectedItem is Trip trip)
+                {
+                    var result = MessageBox.Show(
+                       $"Вы действительно хотите отменить регистрацию?",
+                       "Подтверждение отмены",
+                       MessageBoxButton.YesNo,
+                       MessageBoxImage.Question,
+                       MessageBoxResult.No);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        int tripId = trip.Id;
+                        int userId = _user.Id;
+                        await _manage.CancelRegistration(userId, tripId);
+                        await LoadRegs();
+                    }
+                }
+            }
+            catch (InvalidOperationException)
+            {
+                await Application.Current.Dispatcher.InvokeAsync(() =>
+                {
+                    MessageBox.Show("Отменить запись невозможно. Обратитесь к организатору", "Ошибка",
+                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                });
             }
         }
 

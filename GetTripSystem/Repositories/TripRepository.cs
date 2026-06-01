@@ -12,9 +12,9 @@ namespace GetTripSystem.Repositories
         {
             _context = context;
         }
-        public async Task<List<Trip>> ReadAll()
+        public async Task<List<Trip>> ReadAll(int userId)
         {
-            return await _context.Trips.Where(u => u.CurMembs_amount != u.MaxMembs_amount).ToListAsync();
+            return await _context.Trips.Where(u => u.CurMembs_amount != u.MaxMembs_amount && u.CreatorID != userId).ToListAsync();
         }
         public async Task<List<Trip>> GetTripsByCreatorID(int creatorId)
         {

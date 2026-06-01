@@ -11,6 +11,9 @@
     <Compile Update="Windows\CreateTripWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\KickMembersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\MainMenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

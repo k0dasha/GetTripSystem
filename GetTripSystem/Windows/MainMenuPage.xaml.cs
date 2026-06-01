@@ -65,7 +65,7 @@ namespace GetTripSystem.Windows
         }
         private async void LoadTrips()
         {
-            TripList = await _reg.GetAllTrips();
+            TripList = await _reg.GetAllTrips(_user.Id);
             TripListView.ItemsSource = TripList;
         }
 

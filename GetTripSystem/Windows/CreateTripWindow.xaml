@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GetTripSystem.Windows"
         mc:Ignorable="d"
-        Title="" Height="450" Width="436"
+        Title="GTrip" Height="450" Width="436"
+        Icon ="\Fonts\iconc.ico" WindowStartupLocation="CenterScreen"
         Background="#EBEBFC">
     <Window.Resources>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>

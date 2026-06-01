@@ -30,14 +30,13 @@ namespace GetTripSystem.Repositories
             user.Banned = true;
             await _context.SaveChangesAsync();
         }
-        public async Task<List<string>> GetUsersNamesByIDs(List<int> userIDs)
+        public async Task<List<User>> GetUsersByIDs(List<int> userIDs)
         {
             if (userIDs == null)
                 throw new Exception("Список пуст");
             else
             return await _context.Users
                 .Where(u => userIDs.Contains(u.Id))
-                .Select(u => u.Name)
                 .ToListAsync();
         }
         public async Task<User?> GetUser(string username)

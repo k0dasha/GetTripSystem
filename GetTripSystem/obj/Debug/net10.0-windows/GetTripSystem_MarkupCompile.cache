@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\App.xaml
-91221422761
+10124740820
 
-36-2078136536
+37473985690
 234-1400856627
-Windows\AuthorizationPage.xaml;Windows\AuthorizeWindow.xaml;Windows\CreateTripWindow.xaml;Windows\MainMenuPage.xaml;Windows\MainWindow.xaml;Windows\ManageTripsPage.xaml;Windows\PlannedTripsPage.xaml;Windows\RegistrationPage.xaml;Windows\ViewTripWindow.xaml;
+Windows\AuthorizationPage.xaml;Windows\AuthorizeWindow.xaml;Windows\CreateTripWindow.xaml;Windows\KickMembersWindow.xaml;Windows\MainMenuPage.xaml;Windows\MainWindow.xaml;Windows\ManageTripsPage.xaml;Windows\PlannedTripsPage.xaml;Windows\RegistrationPage.xaml;Windows\ViewTripWindow.xaml;
 
 False
 
