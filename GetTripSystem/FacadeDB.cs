@@ -59,14 +59,14 @@ namespace GetTripSystem
             }
             await _picRepository.Add(tripId, fileName);
         }
-        public Task<List<Trip>> ToSort(int parametr)
+        public List<Trip> ToSort(int parametr, List<Trip> list)
         {
             if (parametr == 0)
             {
-                return _tripRepository.SortByDate();
+                return _tripRepository.SortByDate(list);
             }
             else
-            { return _tripRepository.SortByLocation(); }
+            { return _tripRepository.SortByLocation(list); }
         }
         public async Task<List<User>> GetMembersOfTrip(int tripId)
         {
@@ -102,7 +102,7 @@ namespace GetTripSystem
                     await _regRepository.Add(userID, tripID);
                     await _tripRepository.IncreaseMembersCount(tripID);
                 }
-                else throw new InvalidOperationException("Повторная запись невозможна");
+                else throw new ArgumentException("Повторная запись невозможна");
             }
             else throw new InvalidOperationException("Ошибка записи: мест нет");
         }

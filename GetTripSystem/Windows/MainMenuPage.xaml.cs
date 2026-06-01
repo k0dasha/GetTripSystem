@@ -46,7 +46,7 @@ namespace GetTripSystem.Windows
             NavigationService.Navigate(new ManageTripsPage(_createOps, _manage, _user));
         }
 
-        private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = comboBox_selectSorting.SelectedItem as ComboBoxItem;
             var selection = item?.Content.ToString();
@@ -54,10 +54,10 @@ namespace GetTripSystem.Windows
             switch (selection)
             {
                 case "Дата":
-                    TripList = await _reg.ToSort(0);
+                    TripList = _reg.ToSort(0, TripList);
                     break;
                 case "Локация":
-                    TripList = await _reg.ToSort(1);
+                    TripList = _reg.ToSort(1, TripList);
                     break;
                 
             }
@@ -69,10 +69,27 @@ namespace GetTripSystem.Windows
             TripListView.ItemsSource = TripList;
         }
 
-        private void TripListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private async void TripListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ViewTripWindow viewTripWindow = new ViewTripWindow();
-            viewTripWindow.ShowDialog();
+            var selectedItem = TripListView.SelectedItem;
+            if (selectedItem is Trip trip)
+            {
+                try
+                {
+                    var selectedTrip = await _reg.GetTrip(_user.Id, trip.Id);
+                    ViewTripWindow viewTripWindow = new ViewTripWindow(_reg, selectedTrip, _user);
+                    viewTripWindow.ShowDialog();
+                    LoadTrips();
+                }
+                catch (InvalidOperationException)
+                {
+                    await Application.Current.Dispatcher.InvokeAsync(() =>
+                    {
+                        MessageBox.Show("Вы были исключены организатором, запись недоступна", "Ошибка",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    });
+                }
+            }
         }
     }
 }

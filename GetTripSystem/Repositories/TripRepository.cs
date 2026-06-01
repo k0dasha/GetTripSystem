@@ -14,11 +14,11 @@ namespace GetTripSystem.Repositories
         }
         public async Task<List<Trip>> ReadAll(int userId)
         {
-            return await _context.Trips.Where(u => u.CurMembs_amount != u.MaxMembs_amount && u.CreatorID != userId).ToListAsync();
+            return await _context.Trips.AsNoTracking().Where(u => u.CurMembs_amount != u.MaxMembs_amount && u.CreatorID != userId).ToListAsync();
         }
         public async Task<List<Trip>> GetTripsByCreatorID(int creatorId)
         {
-            return await _context.Trips.Where(u => u.CreatorID == creatorId).ToListAsync();
+            return await _context.Trips.AsNoTracking().Where(u => u.CreatorID == creatorId).ToListAsync();
         }
         public async Task<Trip?> ReadByID(int tripId)
         {
@@ -29,17 +29,17 @@ namespace GetTripSystem.Repositories
             if (tripIDs == null)
                 throw new Exception("Список пуст");
             else
-                return await _context.Trips
+                return await _context.Trips.AsNoTracking()
                     .Where(u => tripIDs.Contains(u.Id))
                     .ToListAsync();
         }
-        public async Task<List<Trip>> SortByDate()
+        public List<Trip> SortByDate(List<Trip> list)
         {
-            return await _context.Trips.OrderBy(c => c.Date).ToListAsync();
+            return list.OrderBy(c => c.Date).ToList();
         }
-        public async Task<List<Trip>> SortByLocation()
+        public List<Trip> SortByLocation(List<Trip> list)
         {
-            return await _context.Trips.OrderByDescending(c => c.Location).ToListAsync();
+            return list.OrderByDescending(c => c.Location).ToList();
         }
         public async Task Add(string tripName, string location, int curMembs, int maxMembs,
         int creatorID, string desc, DateTime date, string creatorContact)

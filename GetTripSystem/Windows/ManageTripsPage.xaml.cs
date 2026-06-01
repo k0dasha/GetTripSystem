@@ -36,22 +36,31 @@ namespace GetTripSystem.Windows
         {
             NavigationService.GoBack();
         }
-        private void Button_WatchMembs_Click(object sender, RoutedEventArgs e)
+        private async void Button_WatchMembs_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             Trip trip = button.Tag as Trip;
 
             KickMembersWindow kickWindow = new KickMembersWindow(_manage, trip);
+            
             kickWindow.ShowDialog();
+
+            await LoadUserTrips();
+        }
+
+        private async void OnKickWindowClosed(object sender, EventArgs e)
+        {
+            await LoadUserTrips();
         }
 
         private void Button_AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            CreateTripWindow createTripWindow = new CreateTripWindow();
+            CreateTripWindow createTripWindow = new CreateTripWindow(_createOps);
             createTripWindow.ShowDialog();
         }
         private async Task LoadUserTrips()
         {
+
             UserTripsList = await _manage.GetUserTrips(_user.Id);
             UserTripsListView.ItemsSource = UserTripsList;
         }

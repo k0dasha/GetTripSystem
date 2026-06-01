@@ -50,8 +50,9 @@ namespace GetTripSystem.Repositories
         {
             return await _context.Registrations
                 .Where(r => r.UserID == userId && r.TripID == tripId)
+                .OrderByDescending(r => r.Id)
                 .Select(r => r.UserStatus)
-                .LastOrDefaultAsync();
+                .FirstOrDefaultAsync();
         }
         public async Task<int> GetCurrentMembersCount(int tripID)
         {

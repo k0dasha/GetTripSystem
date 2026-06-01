@@ -71,6 +71,7 @@ namespace GetTripSystem.Windows
         }
         private async Task LoadRegs()
         {
+            
             RegsTripsList = await _manage.GetUserRegistrations(_user.Id);
             RegsListView.ItemsSource = RegsTripsList;
         }
