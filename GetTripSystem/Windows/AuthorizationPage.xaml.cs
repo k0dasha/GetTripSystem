@@ -73,7 +73,16 @@ namespace GetTripSystem.Windows
                                     MessageBoxButton.OK, MessageBoxImage.Warning);
                 });
             }
+            catch (ArgumentException)
+            {
+                await Application.Current.Dispatcher.InvokeAsync(() =>
+                {
+                    MessageBox.Show("Указанного пользователя не существует", "Ошибка входа",
+                                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                });
+            }
         }
+
     }
     
 }

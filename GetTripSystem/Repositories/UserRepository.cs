@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using static GetTripSystem.DAL;
 
 namespace GetTripSystem.Repositories

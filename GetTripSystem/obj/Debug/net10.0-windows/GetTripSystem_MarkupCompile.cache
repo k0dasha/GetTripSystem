@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_O
 C:\Users\Даша\source\repos\GetTripSystem\GetTripSystem\App.xaml
 10124740820
 
-37473985690
-234-1400856627
+381018542876
+239-1574653836
 Windows\AuthorizationPage.xaml;Windows\AuthorizeWindow.xaml;Windows\CreateTripWindow.xaml;Windows\KickMembersWindow.xaml;Windows\MainMenuPage.xaml;Windows\MainWindow.xaml;Windows\ManageTripsPage.xaml;Windows\PlannedTripsPage.xaml;Windows\RegistrationPage.xaml;Windows\ViewTripWindow.xaml;
 
-True
+False
 

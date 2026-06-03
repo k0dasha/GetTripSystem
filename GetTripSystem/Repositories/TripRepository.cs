@@ -58,16 +58,6 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(trip);
             await _context.SaveChangesAsync();
         }
-        public async Task Update(int id, int maxMembs, string desc, DateTime date, string creatorContact)
-        {
-            await _context.Trips
-                .Where(x => x.Id == id)
-                .ExecuteUpdateAsync(s => s
-                .SetProperty(x => x.MaxMembs_amount, maxMembs)
-                .SetProperty(x => x.Description, desc)
-                .SetProperty(x => x.Date, date)
-                .SetProperty(x => x.CreatorContact, creatorContact));
-        }
         public async Task IncreaseMembersCount(int id)
         {
             await _context.Trips

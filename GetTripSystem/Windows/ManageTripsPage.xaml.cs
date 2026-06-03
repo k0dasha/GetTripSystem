@@ -53,10 +53,12 @@ namespace GetTripSystem.Windows
             await LoadUserTrips();
         }
 
-        private void Button_AddTrip_Click(object sender, RoutedEventArgs e)
+        private async void Button_AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            CreateTripWindow createTripWindow = new CreateTripWindow(_createOps);
+            CreateTripWindow createTripWindow = new CreateTripWindow(_createOps, _user);
             createTripWindow.ShowDialog();
+
+            await LoadUserTrips();
         }
         private async Task LoadUserTrips()
         {

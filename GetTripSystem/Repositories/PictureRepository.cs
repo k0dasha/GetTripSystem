@@ -25,12 +25,16 @@ namespace GetTripSystem.Repositories
             await _context.AddAsync(pic);
             await _context.SaveChangesAsync();
         }
-        public async Task<List<string>> GetAll(int tripId)
+        public async Task<List<Picture>> GetAll(int tripId)
         {
             return await _context.Pictures
                 .Where(r => r.TripID == tripId)
-                .Select(r => r.FileName)
                 .ToListAsync();
+        }
+        public async Task<Picture?> GetPictureById(int tripId)
+        {
+            return await _context.Pictures
+                .FirstOrDefaultAsync(p => p.TripID == tripId);
         }
     }
 }

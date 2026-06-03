@@ -29,6 +29,10 @@ namespace GetTripSystem
 
                 base.OnModelCreating(modelBuilder);
             }
+            public void ResetState()
+            {
+                ChangeTracker.Clear();
+            }
         }
     }
 }

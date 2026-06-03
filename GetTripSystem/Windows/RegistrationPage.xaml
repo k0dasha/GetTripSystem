@@ -3,13 +3,17 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:GetTripSystem.Windows"
+      xmlns:local="clr-namespace:GetTripSystem.Windows" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       Height="200" Width="400" 
       Title=""
       FontFamily="\Fonts\Raleway-VariableFont_wght.ttf" 
       Background="#EBEBFC">
 
+    
+    
+    
+    
     <StackPanel VerticalAlignment="Center">
         <Label
         Content ="Регистрация"
@@ -18,30 +22,56 @@
         FontWeight="Bold"
         Foreground="#0F1053" HorizontalAlignment="Center" VerticalAlignment="Center"
     />
-        <TextBox x:Name="textBox_Login" Template="{DynamicResource TextBoxTemplate1}"
+        <xctk:WatermarkTextBox x:Name="textBox_Login"
         
+            Width="280"
+            FontSize="18"
+            Style="{StaticResource BaseFont}"
+            FontWeight="Bold"
+            Foreground="#9F9FBB"
+            MaxLength="25"
+            TextWrapping="Wrap"
+            Padding="5,2,2,2"
+            Watermark="Логин">
+            <xctk:WatermarkTextBox.WatermarkTemplate>
+                <DataTemplate>
+                 
+                    <TextBlock Text="{Binding}" 
+                       Foreground="#9F9FBB"
+                       FontSize="18"
+                       FontWeight="Bold" />
+                </DataTemplate>
+            </xctk:WatermarkTextBox.WatermarkTemplate>
+
+        </xctk:WatermarkTextBox>
+
+        <xctk:WatermarkTextBox x:Name="textBox_Passwd"
         Width="280"
-        FontSize="20"
-        Style="{StaticResource BaseFont}"
-        FontWeight="Bold"
-        Foreground="#9F9FBB"
-        MaxLength="25"
-        TextWrapping="Wrap"
-    />
-        <TextBox x:Name="textBox_Passwd" Template="{DynamicResource TextBoxTemplate2}"
-        Width="280"
-        FontSize="20"
+        FontSize="18"
         Style="{StaticResource BaseFont}"
         FontWeight="Bold"
         Foreground="#9F9FBB"
         MaxLength="25"
         TextWrapping="Wrap"
         Margin="0,5"
-    />
+        Padding="5,2,2,2"                       
+        Watermark="Пароль">
+
+        <xctk:WatermarkTextBox.WatermarkTemplate>
+            <DataTemplate>
+
+                <TextBlock Text="{Binding}" 
+                        Foreground="#9F9FBB" 
+                        FontSize="18"
+                        FontWeight="Bold" />
+                </DataTemplate>
+            </xctk:WatermarkTextBox.WatermarkTemplate>
+
+        </xctk:WatermarkTextBox>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
             <Button x:Name="BackToAuthorize" Template="{DynamicResource ButtonTemplate1}"
-            Background="#EBEBFC"
+            Background="#F7F7FF"
             Content="Назад"
             Foreground="#0F1053"
             Style="{StaticResource BaseFont}"

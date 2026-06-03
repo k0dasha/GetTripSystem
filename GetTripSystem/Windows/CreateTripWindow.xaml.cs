@@ -28,31 +28,38 @@ namespace GetTripSystem.Windows
             InitializeComponent();
             _createOps = createOperation;
             _user = user;
+            MyDatePicker.SelectedDate = DateTime.Now;
         }
 
-        private async Task Button_CreateTrip_Click(object sender, RoutedEventArgs e)
+        private async void Button_CreateTrip_Click(object sender, RoutedEventArgs e)
         {
             string tripName = textBoxName.Text;
 
-            string dateStr = MyDatePicker.Text;
-            DateTime date = ConvertToDate(dateStr);
+            DateTime date = MyDatePicker.SelectedDate.Value;
+            DateTime utcDate = DateTime.SpecifyKind(date, DateTimeKind.Utc);
+            
 
-            string location = textLocation.Text;
+            string location = CheckFill(textLocation.Text, "'Локация'");
+            if (location == null)
+                return;
 
-            string membsAmountStr = textMembsAmount.Text;
-            int membsAmount = GetFormat(membsAmountStr);
+            string contact = CheckFill(textContact.Text, "'Контакт с организатором'");
+            if (contact == null)
+                return;
 
-            string contact = textContact.Text;
             string desc = textBox_Description.Text;
 
-            if(membsAmount == -1)
+            int membsAmount = GetFormat(textMembsAmount.Text);
+            if (membsAmount == -1)
+            {
                 MessageBox.Show("Введите числовое значение для поля 'Количество участников'", "Ошибка записи",
-                                    MessageBoxButton.OK, MessageBoxImage.Warning);
-            if (!string.IsNullOrWhiteSpace(tripName))
-                {
-                    _createOps.RegisterTrip(tripName, location, 0, membsAmount, _user.Id, desc, date, contact);
-                    this.Close();
-                }
+                                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            await _createOps.RegisterTrip(tripName, location, 0, membsAmount, _user.Id, desc, utcDate, contact);
+            this.Close();
+
         }
         private int GetFormat(string number)
         {
@@ -63,11 +70,34 @@ namespace GetTripSystem.Windows
             return -1;
             
         }
-        private DateTime ConvertToDate(string date)
+        private string CheckFill(string field, string fieldName)
         {
-            var result = DateTime.ParseExact(date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
-            return result;
+            if (string.IsNullOrWhiteSpace(field))
+            {
+                MessageBox.Show($"Введите значение для поля {fieldName}", "Обязательное поле", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return null;
+            }
+            return field;
+        }
 
+        private void textMembsAmount_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back || e.Key == Key.Delete)
+            {
+                return;
+            }
+
+            if ((e.Key >= Key.D0 && e.Key <= Key.D9) ||
+                (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9))
+            {
+                return;
+            }
+            e.Handled = true;
+        }
+        private void dateTimePicker_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
         }
     }
+    
 }

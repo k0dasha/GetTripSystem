@@ -26,7 +26,7 @@ namespace GetTripSystem
             var services = new ServiceCollection();
 
             services.AddDbContext<Context>(options =>
-                options.UseNpgsql("Host=localhost;Database=trip_database;Username=postgres;Password=1234"));
+                options.UseNpgsql("Host=localhost;Database=trip_database;Username=postgres;Password=1234"), ServiceLifetime.Transient);
 
             services.AddScoped<UserRepository>();
             services.AddScoped<TripRepository>();
@@ -40,6 +40,16 @@ namespace GetTripSystem
             services.AddScoped<IRegistration>(sp => sp.GetRequiredService<FacadeDB>());
 
             services.AddTransient<AuthorizeWindow>();
+            services.AddTransient<MainWindow>();
+            services.AddTransient<RegistrationPage>();
+            services.AddTransient<AuthorizationPage>();
+            services.AddTransient<MainMenuPage>();
+            services.AddTransient<PlannedTripsPage>();
+            services.AddTransient<ManageTripsPage>();
+            services.AddTransient<ViewTripWindow>();
+            services.AddTransient<CreateTripWindow>();
+            services.AddTransient<KickMembersWindow>();
+
 
             ServiceProvider = services.BuildServiceProvider();
 
